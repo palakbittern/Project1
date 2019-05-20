@@ -1,0 +1,36 @@
+
+
+<%# @book.categories.each do |book| %>
+  <p>
+    <strong>Category_id:</strong>
+    <%= @book.category_id %>
+  </p>
+ 
+  <p>
+    <strong>Name:</strong>
+    <%= @book.name %>
+  </p>
+  
+  <p>
+    <strong>Author:</strong>
+    <%= @book.author %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= @book.price %>
+  </p>
+  <p>
+  <strong>image</strong>
+  <% if @book.image.present? %>
+ <%= image_tag(@book.image.url, size: "100x100")%>
+ <% end %>
+</p>
+<%# end %>
+
+<%#= link_to 'new form', new_book_path %>
+ 
+<br/>
+<%= link_to 'Edit', edit_book_path %>
+<br/>
+<%= link_to 'Back', books_path %>

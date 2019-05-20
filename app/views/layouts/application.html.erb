@@ -23,10 +23,11 @@
   <body>
      
     <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-    <a href="http://localhost:3000/books" class="navbar-book">Book</a> 
-    <a href="http://localhost:3000/categories/new" class="navbar-category">Add New Category</a>
-    <a href="http://localhost:3000/books/new" class="navbar-book">Add New Book</a>
-  
+    <%= link_to 'books', root_path %> 
+    <%= link_to 'Add category', new_category_path(@category) %>
+
+    <%= link_to 'Add book', new_book_path(@book) %>
+
        <%= form_tag books_path, :method => 'get' do %>
         <p class="col-sm-7 col-md-7 pull-right">
          <%= text_field_tag :search, params[:search] %>

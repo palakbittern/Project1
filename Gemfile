@@ -65,4 +65,4 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'carrierwave'
 gem 'will_paginate', '~> 3.1.7'
-
+gem 'activeadmin'

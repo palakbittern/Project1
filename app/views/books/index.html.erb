@@ -15,7 +15,7 @@
 
     <tr>
       <td><%= book.category_id %></td>
-      <td><%= book.name %></td>
+      <td><%= book.try(:name) %></td>
       <td><%= book.author %></td>
       <td><%= book.price %></td>
       <td><%= image_tag(book.image.url, size: "100x100") %></td>

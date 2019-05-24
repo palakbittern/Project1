@@ -7,7 +7,6 @@ class BooksController < ApplicationController
    
   def show
   	@book = Book.find(params[:id])
-       UserMailer.welcome_email(@user).deliver_now
   end
 
 
@@ -24,20 +23,23 @@ class BooksController < ApplicationController
     #@book = @book.categories.create(book_params)
     #redirect_to books_path(@book)
      @book = Book.new(book_params)
- 
      if @book.save
+        flash[:success] = " Book has been Sucessfully Created "
        redirect_to  books_path
      else
+       flash.now[:error] = "Book is not updated #{@book.name}."
       render 'new'
       end
     end
 
    def update 
    	@book = Book.find(params[:id])
+     flash[:success] = "Book has been Successfully updated"
  
   if @book.update(book_params)
     redirect_to books_path
   else
+       flash.now[:error] = "Book is not updated #{@book.name}."
     render 'edit'
    end
 end
@@ -45,6 +47,9 @@ end
  def destroy
 	  @book = Book.find(params[:id])
 	  @book.destroy
+
+     flash[:success] = "Book has been Successfully deleted"
+ 
 	 redirect_to books_path
 	 end
 
